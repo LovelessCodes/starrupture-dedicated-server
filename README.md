@@ -56,6 +56,12 @@ You can use these environment variables for your server settings:
 | Variable    | Default               | Description                                        |
 |-------------|-----------------------|----------------------------------------------------|
 | SERVER_PORT | 7777                  | The port that clients will connect to for gameplay |
+| OVERWRITE_DSSETTINGS | false                  | Tells the server to overwrite DSSettings (The default server settings) |
+| SESSION_NAME | My StarRupture Server | The name of the session |
+| START_NEW_GAME | true | Tells the server to start a fresh game |
+| LOAD_SAVED_GAME | false | Tells the server to load a saved game |
+| SAVE_GAME_NAME | AutoSave0.sav | Tells the server which save game it should load |
+| SAVE_GAME_INTERVAL | 300 | This tells the server how many seconds it should wait before saving |
 
 ## Links
 Github [https://github.com/struppinet/starrupture-dedicated-server](https://github.com/struppinet/starrupture-dedicated-server)  
