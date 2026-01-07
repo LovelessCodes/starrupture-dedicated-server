@@ -1,4 +1,4 @@
-# Docker for a StarRupture dedicated servert
+# Docker for a StarRupture dedicated server
 
 ![Static Badge](https://img.shields.io/badge/GitHub-starrupture--dedicated--server-blue?logo=github) [![Docker Hub](https://img.shields.io/badge/Docker_Hub-starrupture--dedicated--server-blue?logo=docker)](https://hub.docker.com/r/struppinet/starrupture-dedicated-server)
 
