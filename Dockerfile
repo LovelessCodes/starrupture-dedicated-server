@@ -1,6 +1,6 @@
-FROM ghcr.io/ptero-eggs/yolks:wine_latest
+FROM --platform=linux/amd64 ghcr.io/pelican-eggs/yolks:wine_latest
 
-LABEL author="struppi" maintainer="https://github.com/struppinet"
+LABEL author="lovelesscodes" maintainer="https://github.com/lovelesscodes"
 
 # customization
 VOLUME ["/home/container/server_files"]
