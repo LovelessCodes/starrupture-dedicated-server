@@ -50,9 +50,6 @@ if [ "$OVERWRITE_DSSETTINGS" = "true" ]; then
   echo "Deleting existing DSSettings.txt"
   rm -f "$server_files/DSSettings.txt"
 
-  SERVER_PORT=${SERVER_PORT:-7777}
-  echo "Using port: $SERVER_PORT"
-
   SESSION_NAME=${SESSION_NAME:-My StarRupture Server}
   echo "Using session name: $SESSION_NAME"
 
@@ -79,6 +76,9 @@ if [ "$OVERWRITE_DSSETTINGS" = "true" ]; then
 }
 EOL
 fi
+
+SERVER_PORT=${SERVER_PORT:-7777}
+echo "Using port: $SERVER_PORT"
 
 echo " "
 echo "Launching StarRupture Dedicated Server"
