@@ -52,4 +52,4 @@ echo " "
 
 # RUN
 cd "$server_files"
-xvfb-run --auto-servernum wine $server_files/StarRupture/Binaries/Win64/StarRuptureServerEOS-Win64-Shipping.exe -Log -port=$SERVER_PORT 2>&1
+xvfb-run --auto-servernum wine $server_files/StarRupture/Binaries/Win64/StarRuptureServerEOS-Win64-Shipping.exe /Game/Chimera/Maps/ChimeraMain/ChimeraMain?Name=Player -Log -port=$SERVER_PORT 2>&1
