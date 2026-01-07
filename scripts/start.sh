@@ -43,8 +43,42 @@ echo " "
 echo "Configuring StarRupture Dedicated Server ..."
 echo " "
 
-SERVER_PORT=${SERVER_PORT:-7777}
-echo "Using port: $SERVER_PORT"
+OVERWRITE_DSSETTINGS=${OVERWRITE_DSSETTINGS:-false}
+echo "Overwrite DSSettings.txt: $OVERWRITE_DSSETTINGS"
+
+if [ "$OVERWRITE_DSSETTINGS" = "true" ]; then
+  echo "Deleting existing DSSettings.txt"
+  rm -f "$server_files/DSSettings.txt"
+
+  SERVER_PORT=${SERVER_PORT:-7777}
+  echo "Using port: $SERVER_PORT"
+
+  SESSION_NAME=${SESSION_NAME:-My StarRupture Server}
+  echo "Using session name: $SESSION_NAME"
+
+  START_NEW_GAME=${START_NEW_GAME:-true}
+  echo "Start new game: $START_NEW_GAME"
+
+  LOAD_SAVED_GAME=${LOAD_SAVED_GAME:-false}
+  echo "Load saved game: $LOAD_SAVED_GAME"
+
+  SAVE_GAME_NAME=${SAVE_GAME_NAME:-AutoSave0.sav}
+  echo "Save game name: $SAVE_GAME_NAME"
+
+  SAVE_GAME_INTERVAL=${SAVE_GAME_INTERVAL:-300}
+  echo "Save game interval (seconds): $SAVE_GAME_INTERVAL"
+
+  dssettings_file="$server_files/DSSettings.txt"
+  cat > "$dssettings_file" <<EOL
+{
+  "SessionName": "$SESSION_NAME",
+  "SaveGameInterval": $SAVE_GAME_INTERVAL,
+  "StartNewGame": "$START_NEW_GAME",
+  "LoadSavedGame": "$LOAD_SAVED_GAME",
+  "SaveGameName": "$SAVE_GAME_NAME"
+}
+EOL
+fi
 
 echo " "
 echo "Launching StarRupture Dedicated Server"
@@ -52,4 +86,4 @@ echo " "
 
 # RUN
 cd "$server_files"
-xvfb-run --auto-servernum wine $server_files/StarRupture/Binaries/Win64/StarRuptureServerEOS-Win64-Shipping.exe /Game/Chimera/Maps/ChimeraMain/ChimeraMain?Name=Player -Log -port=$SERVER_PORT 2>&1
+xvfb-run --auto-servernum wine $server_files/StarRupture/Binaries/Win64/StarRuptureServerEOS-Win64-Shipping.exe -Log -port=$SERVER_PORT 2>&1
